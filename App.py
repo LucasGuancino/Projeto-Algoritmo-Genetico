@@ -20,7 +20,7 @@ def criar_populacao_inicial_do_excel(file_path):
     professores = df['Professor'].unique().tolist()
 
     for _, row in df.iterrows():
-        dias_banca = row['Dia'].split(';')
+        dias_banca = str(row['Dia']).split(';')
         horarios_banca = row['Horario'].split(';')
 
         for dia, horario in zip(dias_banca, horarios_banca):
@@ -239,8 +239,9 @@ for _, row in df.iterrows():
     dias_desejados_str = row['Dia']
 
     # Divide a string em horários individuais
+    str(row['Dia']).split(';')
     horarios = horarios_desejados_str.split(';')
-    dias = dias_desejados_str.split(';')
+    dias = str(dias_desejados_str).split(';')
 
     # Adiciona os horários desejados à lista para o professor
     for horario in horarios:
@@ -339,8 +340,8 @@ for banca in nova_populacao:
 resultados_populacao_final = []
 for banca in nova_populacao:
     resultados_populacao_final.append(
-        f"Professor 1: {banca.professor1}, Professor 2: {banca.professor2}, Data da Banca:{
-            banca.data}, Horario da Banca:{banca.horario}, Fitness da Banca: {banca.fitness}"
+        f"Professor 1: {banca.professor1}, Professor 2: {banca.professor2}, Data da Banca: {
+            banca.data}, Horario da Banca: {banca.horario}, Fitness da Banca: {banca.fitness}"
     )
 
 exibir_resultados(resultados_populacao_final)
