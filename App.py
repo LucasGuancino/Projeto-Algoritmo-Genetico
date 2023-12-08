@@ -4,7 +4,6 @@ import tkinter as tk
 from tkinter import filedialog, ttk
 import os
 
-
 class BancaTCC:
     def __init__(self, professor1, professor2, data, horario):
         self.professor1 = professor1
@@ -212,7 +211,7 @@ def abrir_janela():
 excel_path = abrir_janela()
 
 # Hiperparâmetros
-tamanho_populacao = 30
+tamanho_populacao = 200
 tamanho_torneio = 3
 taxa_mutacao = 0.1
 numero_geracoes = 100
